@@ -23,7 +23,7 @@ namespace ConsoleArrayAverage
             for (int i = 0; i < t; i++ )
             {
                 Console.WriteLine("Enter int64 value for the my Array: ");
-                myArray[i] = Convert.ToInt64(Console.ReadLine()); //Assigning value to array element          
+                myArray[i] = Convert.ToInt64(Console.ReadLine()); //Assigning value to an array element          
                 
                 Console.WriteLine("Array length = " + myArray.Length);
                 Console.WriteLine("Array average = " + myArray.Average());
