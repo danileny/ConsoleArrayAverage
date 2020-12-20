@@ -54,7 +54,7 @@ namespace ConsoleArrayAverage
             {
                 Console.Clear();
                 Console.WriteLine("Program executed. Console cleared.");
-                return "0";
+                Environment.Exit(0);
             }
             else
             {
