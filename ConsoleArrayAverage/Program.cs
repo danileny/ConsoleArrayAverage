@@ -5,6 +5,14 @@ namespace ConsoleArrayAverage
 {
     class Program
     {
+        static void IntroMessage()
+        {
+            Console.Beep();
+            Console.WriteLine("Enter int64 value for myArray[] OR Enter \"quit\" to stop.");
+            Console.WriteLine("-----------------------------------------------------------");
+            
+    }
+
         static void Resize<T>(ref T[] array, int newSize) //Resize array. <T> makes generic method ('T' - type).
         {
             T[] newArray = new T[newSize];
@@ -13,69 +21,63 @@ namespace ConsoleArrayAverage
             array = newArray;
         }
 
-        static void AverageMethod ()
+        static void AverageMethod(string enteredVar)
         {
             Int64[] myArray; //Deaclare an array
             int t = 1;
-
+            int i = 0;
             myArray = new Int64[t]; //Initialize an array
-
-            for (int i = 0; i < t; i++)
+            
+            for (i = 0; i < t; i++)
             {
-                Console.WriteLine("Enter int64 value for the my Array: ");
-                myArray[i] = Convert.ToInt64(Console.ReadLine()); //Assigning value to an array element 
+                myArray[i] = Convert.ToInt64(enteredVar); // обработай exception!!!
 
                 Console.WriteLine("Array length = " + myArray.Length);
-                Console.WriteLine("Array average = " + myArray.Average());
-                t++;
+                Console.WriteLine("Array average = " + myArray.Average());             
+                
                 foreach (int k in myArray)
                 {
                     Console.Write($"{k}\a\t");
                 }
                 Console.Write("\n");
+                
+                t++;
                 Resize(ref myArray, t); //Change array length
+                Console.WriteLine("Enter another int64 value for myArray: ");
+                enteredVar = InputCheck(Convert.ToString(Console.ReadLine()));
             }
         }
 
-        static void Main(string[] args)
-        {
-            Console.Beep();
-            Console.WriteLine("Enter int64 value for myArray[] OR Enter x to stop.");
-            
-            string varToEnter = Console.ReadLine();
-
-            if (varToEnter == "x" || varToEnter == "X")
+        static string InputCheck(string metArg)
+        {            
+            if (metArg == "quit")
             {
                 Console.Clear();
-                Console.Write("Console cleared");               
+                Console.WriteLine("Program executed. Console cleared.");
+                return "0";
             }
             else
             {
                 try
                 {
-                    Convert.ToInt64(varToEnter); //Assigning value to an array element                                                                                               
+                    Convert.ToInt64(metArg);
                 }
                 catch (Exception e)
                 {
-                    Console.WriteLine(e.Message);
+                    Console.WriteLine(e.Message);                                        
                 }
             }
-
-
-            /*
-                finally
-            {
-                if varForArray == "x";
-            }
-            */
+            return metArg;
+        }
+        static void Main(string[] args)
+        {            
+            IntroMessage();
+            string enteredVar = Console.ReadLine();
+            InputCheck(enteredVar);
+            AverageMethod(enteredVar);
             
 
-
-
-
-
-
-            //AverageMethod();
+            
         }
     }
 }
