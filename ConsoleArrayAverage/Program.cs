@@ -31,7 +31,7 @@ namespace ConsoleArrayAverage
             
             for (i = 0; i < t; i++)
             {
-                myArray[i] = Convert.ToInt64(enteredVar); // обработай exception!!!
+                myArray[i] = Convert.ToInt64(enteredVar);
 
                 Console.WriteLine("Array length = " + myArray.Length);
                 Console.WriteLine("Array average = " + myArray.Average());             
