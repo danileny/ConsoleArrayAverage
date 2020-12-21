@@ -55,6 +55,7 @@ namespace ConsoleArrayAverage
             {
                 Console.Clear();
                 Console.WriteLine("Program stopped. Console cleared.");
+                Console.ReadKey();
                 Environment.Exit(0);
             }
             else
@@ -66,7 +67,7 @@ namespace ConsoleArrayAverage
                 catch (Exception e)
                 {
                     Console.WriteLine(e.Message);
-                    Console.WriteLine("Program execution stopped");
+                    Console.WriteLine("Program execution stopped. Due to error.");
                     Environment.Exit(0);                    
                 }
             }
