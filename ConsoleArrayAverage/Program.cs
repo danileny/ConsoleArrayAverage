@@ -53,7 +53,7 @@ namespace ConsoleArrayAverage
             if (metArg == "quit")
             {
                 Console.Clear();
-                Console.WriteLine("Program executed. Console cleared.");
+                Console.WriteLine("Program stopped. Console cleared.");
                 Environment.Exit(0);
             }
             else
@@ -64,7 +64,8 @@ namespace ConsoleArrayAverage
                 }
                 catch (Exception e)
                 {
-                    Console.WriteLine(e.Message);                                        
+                    Console.WriteLine(e.Message);
+                    Environment.Exit(0);
                 }
             }
             return metArg;
