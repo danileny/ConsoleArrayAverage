@@ -26,7 +26,7 @@ namespace ConsoleArrayAverage
         {
             Int64[] myArray; //Deaclare an array
             int t = 1;
-            int i = 0;
+            int i;
             myArray = new Int64[t]; //Initialize an array
             
             for (i = 0; i < t; i++)
