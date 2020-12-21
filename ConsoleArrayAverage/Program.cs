@@ -8,10 +8,11 @@ namespace ConsoleArrayAverage
         static void IntroMessage()
         {
             Console.Beep();
+            Console.WriteLine("-----------------------------------------------------------");
             Console.WriteLine("Enter int64 value for myArray[] OR Enter \"quit\" to stop.");
             Console.WriteLine("-----------------------------------------------------------");
-            
-    }
+            Console.Beep();
+        }
 
         static void Resize<T>(ref T[] array, int newSize) //Resize array. <T> makes generic method ('T' - type).
         {
@@ -65,7 +66,8 @@ namespace ConsoleArrayAverage
                 catch (Exception e)
                 {
                     Console.WriteLine(e.Message);
-                    Environment.Exit(0);
+                    Console.WriteLine("Program execution stopped");
+                    Environment.Exit(0);                    
                 }
             }
             return metArg;
@@ -75,10 +77,7 @@ namespace ConsoleArrayAverage
             IntroMessage();
             string enteredVar = Console.ReadLine();
             InputCheck(enteredVar);
-            AverageMethod(enteredVar);
-            
-
-            
+            AverageMethod(enteredVar);            
         }
     }
 }
