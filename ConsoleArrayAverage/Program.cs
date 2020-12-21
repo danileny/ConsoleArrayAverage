@@ -67,7 +67,8 @@ namespace ConsoleArrayAverage
                 catch (Exception e)
                 {
                     Console.WriteLine(e.Message);
-                    Console.WriteLine("Program execution stopped. Due to error.");
+                    Console.WriteLine($"Program execution stopped due to error above. Press any key to exit.");
+                    Console.ReadKey();
                     Environment.Exit(0);                    
                 }
             }
