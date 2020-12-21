@@ -74,7 +74,7 @@ namespace ConsoleArrayAverage
             }
             return metArg;
         }
-        static void Main(string[] args)
+        static void Main()
         {            
             IntroMessage();
             string enteredVar = Console.ReadLine();
