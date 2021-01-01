@@ -7,13 +7,11 @@ namespace ConsoleArrayAverage
     {
         static void IntroMessage()
         {
-            //Console.Beep();
             Console.WriteLine("-----------------------------------------------------------");
             Console.WriteLine("Simple array average calc.");
             Console.WriteLine("Type \"help\" for the list of common commands.");
             Console.WriteLine("Enter int64 value for myArray[] OR Enter \"quit\" to stop.");
             Console.WriteLine("-----------------------------------------------------------");
-            //Console.Beep();
         }
 
         static void Resize<T>(ref T[] array, int newSize) //Resize array. <T> makes generic method ('T' - type).
@@ -77,7 +75,8 @@ namespace ConsoleArrayAverage
                     Console.WriteLine($"Program execution stopped due to error above. Press any key to exit.");
                     Console.ReadKey();
                     Environment.Exit(0);                    
-                }                
+                }
+                
             }
             return metArg;
         }
@@ -85,7 +84,8 @@ namespace ConsoleArrayAverage
         {            
             IntroMessage();
             string enteredVar = Console.ReadLine();
-            InputCheck(enteredVar);         
+            InputCheck(enteredVar);
+            AverageMethod(enteredVar);
         }
     }
 }
