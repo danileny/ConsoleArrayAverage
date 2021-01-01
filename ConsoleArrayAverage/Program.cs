@@ -7,11 +7,13 @@ namespace ConsoleArrayAverage
     {
         static void IntroMessage()
         {
-            Console.Beep();
+            //Console.Beep();
             Console.WriteLine("-----------------------------------------------------------");
+            Console.WriteLine("Simple array average calc.");
+            Console.WriteLine("Type \"help\" for the list of common commands.");
             Console.WriteLine("Enter int64 value for myArray[] OR Enter \"quit\" to stop.");
             Console.WriteLine("-----------------------------------------------------------");
-            Console.Beep();
+            //Console.Beep();
         }
 
         static void Resize<T>(ref T[] array, int newSize) //Resize array. <T> makes generic method ('T' - type).
@@ -49,7 +51,7 @@ namespace ConsoleArrayAverage
             }
         }
         static string InputCheck(string metArg)
-        {            
+        {
             if (metArg == "quit")
             {
                 Console.Clear();
@@ -57,11 +59,17 @@ namespace ConsoleArrayAverage
                 Console.ReadKey();
                 Environment.Exit(0);
             }
+            else if (metArg == "help")
+            {
+                Console.WriteLine("You can use the following commands:");                
+                Console.WriteLine("\tquit \tUse it to quit the program");
+                Console.ReadLine();                
+            }            
             else
             {
                 try
                 {
-                    Convert.ToInt64(metArg);
+                    Convert.ToInt64(metArg);                    
                 }
                 catch (Exception e)
                 {
@@ -69,7 +77,7 @@ namespace ConsoleArrayAverage
                     Console.WriteLine($"Program execution stopped due to error above. Press any key to exit.");
                     Console.ReadKey();
                     Environment.Exit(0);                    
-                }
+                }                
             }
             return metArg;
         }
@@ -77,8 +85,7 @@ namespace ConsoleArrayAverage
         {            
             IntroMessage();
             string enteredVar = Console.ReadLine();
-            InputCheck(enteredVar);
-            AverageMethod(enteredVar);            
+            InputCheck(enteredVar);         
         }
     }
 }
