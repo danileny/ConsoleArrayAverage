@@ -53,7 +53,7 @@ namespace ConsoleArrayAverage
             if (metArg == "quit")
             {
                 Console.Clear();
-                Console.WriteLine("Program stopped. Console cleared.");
+                Console.WriteLine("Program stopped. Console cleared. Press any key to exit.");
                 Console.ReadKey();
                 Environment.Exit(0);
             }
