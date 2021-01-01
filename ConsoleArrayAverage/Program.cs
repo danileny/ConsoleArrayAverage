@@ -48,7 +48,6 @@ namespace ConsoleArrayAverage
                 enteredVar = InputCheck(Convert.ToString(Console.ReadLine()));
             }
         }
-
         static string InputCheck(string metArg)
         {            
             if (metArg == "quit")
