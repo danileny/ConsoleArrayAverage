@@ -31,7 +31,7 @@ namespace ConsoleArrayAverage
             
             for (i = 0; i < t; i++)
             {
-                myArray[i] = Convert.ToInt64(enteredVar);
+                myArray[i] = Convert.ToInt64(InputCheck(enteredVar));
 
                 Console.WriteLine("Array length = " + myArray.Length);
                 Console.WriteLine("Array average = " + myArray.Average());             
@@ -61,12 +61,12 @@ namespace ConsoleArrayAverage
             {
                 Console.WriteLine("You can use the following commands:");                
                 Console.WriteLine("\t- quit \tUse it to quit the program");
-            //    Console.WriteLine("\t- reset \tUse it to ckean the array");
+                Console.WriteLine("\t- reset \tUse it to ckean the array");
                 Console.ReadLine();                
             }
             //else if (metArg == "clear")
             //{
-            //    myArray[0] = new Int64[0];
+            //    Resize(ref myArray, t); //Change array length
             //}
             else
             {
@@ -77,9 +77,9 @@ namespace ConsoleArrayAverage
                 catch (Exception e)
                 {
                     Console.WriteLine(e.Message);
-                    Console.WriteLine($"Program execution stopped due to error above. Press any key to exit.");
-                    Console.ReadKey();
-                    Environment.Exit(0);                    
+                    Console.WriteLine($"Program execution stopped due to error above. Enter value to continue.");
+                    metArg =  InputCheck(Console.ReadLine()); 
+                    //Environment.Exit(0);                    
                 }
                 
             }
@@ -88,9 +88,7 @@ namespace ConsoleArrayAverage
         static void Main()
         {            
             IntroMessage();
-            string enteredVar = Console.ReadLine();
-            InputCheck(enteredVar);
-            AverageMethod(enteredVar);
+            AverageMethod(Console.ReadLine());
         }
     }
 }
