@@ -7,11 +7,11 @@ namespace ConsoleArrayAverage
     {
         static void IntroMessage()
         {
-            Console.Beep();
             Console.WriteLine("-----------------------------------------------------------");
+            Console.WriteLine("Simple array average calc.");
+            Console.WriteLine("Type \"help\" for the list of common commands.");
             Console.WriteLine("Enter int64 value for myArray[] OR Enter \"quit\" to stop.");
             Console.WriteLine("-----------------------------------------------------------");
-            Console.Beep();
         }
 
         static void Resize<T>(ref T[] array, int newSize) //Resize array. <T> makes generic method ('T' - type).
@@ -31,7 +31,7 @@ namespace ConsoleArrayAverage
             
             for (i = 0; i < t; i++)
             {
-                myArray[i] = Convert.ToInt64(enteredVar);
+                myArray[i] = Convert.ToInt64(InputCheck(enteredVar));
 
                 Console.WriteLine("Array length = " + myArray.Length);
                 Console.WriteLine("Array average = " + myArray.Average());             
@@ -48,38 +48,46 @@ namespace ConsoleArrayAverage
                 enteredVar = InputCheck(Convert.ToString(Console.ReadLine()));
             }
         }
-
         static string InputCheck(string metArg)
-        {            
+        {
             if (metArg == "quit")
             {
                 Console.Clear();
-                Console.WriteLine("Program stopped. Console cleared.");
+                Console.WriteLine("Program stopped. Console cleared. Press any key to exit.");
                 Console.ReadKey();
                 Environment.Exit(0);
+            }
+            else if (metArg == "help")
+            {
+                Console.WriteLine("You can use the following commands:");                
+                Console.WriteLine("\t- quit \tUse it to quit the program");
+                Console.WriteLine("\t- reset \tUse it to ckean the array");
+                metArg = InputCheck(Console.ReadLine());                
+            }
+            else if (metArg == "reset")
+            {
+                Main();            
             }
             else
             {
                 try
                 {
-                    Convert.ToInt64(metArg);
+                    Convert.ToInt64(metArg);                    
                 }
                 catch (Exception e)
                 {
                     Console.WriteLine(e.Message);
-                    Console.WriteLine($"Program execution stopped due to error above. Press any key to exit.");
-                    Console.ReadKey();
-                    Environment.Exit(0);                    
-                }
+                    Console.WriteLine($"Program execution stopped due to error above. Enter value to continue.");
+                    metArg =  InputCheck(Console.ReadLine()); 
+                    //Environment.Exit(0);                    
+                }                
             }
             return metArg;
         }
         static void Main()
         {            
             IntroMessage();
-            string enteredVar = Console.ReadLine();
-            InputCheck(enteredVar);
-            AverageMethod(enteredVar);            
+            AverageMethod(Console.ReadLine());
         }
     }
 }
