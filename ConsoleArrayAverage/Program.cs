@@ -62,12 +62,12 @@ namespace ConsoleArrayAverage
                 Console.WriteLine("You can use the following commands:");                
                 Console.WriteLine("\t- quit \tUse it to quit the program");
                 Console.WriteLine("\t- reset \tUse it to ckean the array");
-                Console.ReadLine();                
+                metArg = InputCheck(Console.ReadLine());                
             }
-            //else if (metArg == "clear")
-            //{
-            //    Resize(ref myArray, t); //Change array length
-            //}
+            else if (metArg == "reset")
+            {
+                Main();            
+            }
             else
             {
                 try
@@ -80,8 +80,7 @@ namespace ConsoleArrayAverage
                     Console.WriteLine($"Program execution stopped due to error above. Enter value to continue.");
                     metArg =  InputCheck(Console.ReadLine()); 
                     //Environment.Exit(0);                    
-                }
-                
+                }                
             }
             return metArg;
         }
