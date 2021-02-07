@@ -60,9 +60,14 @@ namespace ConsoleArrayAverage
             else if (metArg == "help")
             {
                 Console.WriteLine("You can use the following commands:");                
-                Console.WriteLine("\tquit \tUse it to quit the program");
+                Console.WriteLine("\t- quit \tUse it to quit the program");
+            //    Console.WriteLine("\t- reset \tUse it to ckean the array");
                 Console.ReadLine();                
-            }            
+            }
+            //else if (metArg == "clear")
+            //{
+            //    myArray[0] = new Int64[0];
+            //}
             else
             {
                 try
