@@ -24,10 +24,10 @@ namespace ConsoleArrayAverage
 
         static void AverageMethod(string inputAverageMethodArgument)
         {
-            Int64[] myArray; //Deaclare an array
+            long[] myArray; //Deaclare an array
             int t = 1;
             int i;
-            myArray = new Int64[t]; //Initialize an array
+            myArray = new long[t]; //Initialize an array
             
             for (i = 0; i < t; i++)
             {
