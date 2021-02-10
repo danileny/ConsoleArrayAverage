@@ -61,7 +61,7 @@ namespace ConsoleArrayAverage
             {
                 Console.WriteLine("You can use the following commands:");                
                 Console.WriteLine("\t- quit \tUse it to quit the program");
-                Console.WriteLine("\t- reset \tUse it to ckean the array");
+                Console.WriteLine("\t- reset \tUse it to clean the array");
                 inputCheckArgument = InputCheck(Console.ReadLine());                
             }
             else if (inputCheckArgument == "reset")
@@ -77,7 +77,7 @@ namespace ConsoleArrayAverage
                 catch (Exception e)
                 {
                     Console.WriteLine(e.Message);
-                    Console.WriteLine($"Program execution stopped due to error above. Enter value to continue.");
+                    Console.WriteLine($"Program execution stopped due to error above. Enter int64 value to continue.");
                     inputCheckArgument =  InputCheck(Console.ReadLine()); 
                     //Environment.Exit(0);                    
                 }                
