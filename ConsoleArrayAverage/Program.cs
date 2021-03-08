@@ -22,7 +22,7 @@ namespace ConsoleArrayAverage
             array = newArray;
         }
 
-        static void AverageMethod(string inputAverageMethodArgument)
+        static void AverageMethod(string inputAverageMethodArgument) //new created
         {
             long[] myArray; //Deaclare an array
             int t = 1;
