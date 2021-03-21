@@ -5,11 +5,15 @@ namespace ConsoleArrayAverage
 {
     class Program
     {
-        static void IntroMessage()
+        static void InfoMessage()
         {
             Console.WriteLine("-----------------------------------------------------------");
             Console.WriteLine("Simple array average calc.");
-            Console.WriteLine("Type \"help\" for the list of common commands.");
+            Console.WriteLine("You can use the following commands:");
+            Console.WriteLine("\t- \"help\"\tUse it to get the list of common commands");
+            Console.WriteLine("\t- \"reset\"\tUse it to clean the array");
+            Console.WriteLine("\t- \"quit\"\tUse it to quit the program\n");
+            
             Console.WriteLine("Enter int64 value for myArray[] OR Enter \"quit\" to stop.");
             Console.WriteLine("-----------------------------------------------------------");
         }
@@ -59,15 +63,13 @@ namespace ConsoleArrayAverage
             }
             else if (inputCheckArgument == "help")
             {
-                Console.WriteLine("You can use the following commands:");
-                Console.WriteLine("\t- \"help\"\tUse it to get the list of common commands");
-                Console.WriteLine("\t- \"reset\"\tUse it to clean the array");
-                Console.WriteLine("\t- \"quit\"\tUse it to quit the program");
+                InfoMessage();
                 inputCheckArgument = InputCheck(Console.ReadLine());                
             }
             else if (inputCheckArgument == "reset")
             {
-                Main();            
+                Console.WriteLine("Array cleaned");
+                Main();
             }
             else
             {
@@ -87,7 +89,7 @@ namespace ConsoleArrayAverage
         }
         static void Main()
         {            
-            IntroMessage();
+            InfoMessage();
             AverageMethod(Console.ReadLine());
         }
     }
