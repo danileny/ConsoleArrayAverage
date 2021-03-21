@@ -7,15 +7,17 @@ namespace ConsoleArrayAverage
     {
         static void InfoMessage()
         {
-            Console.WriteLine("-----------------------------------------------------------");
-            Console.WriteLine("Simple array average calc.");
+            Console.WriteLine("---------------------------------------------------------------------");
+            Console.WriteLine("----------------------Simple array average calc----------------------");
+            Console.WriteLine("---------------------------------------------------------------------");
             Console.WriteLine("You can use the following commands:");
-            Console.WriteLine("\t- \"help\"\tUse it to get the list of common commands");
+            Console.WriteLine("\t- \"help\"\tUse it to list all availiable commands");
             Console.WriteLine("\t- \"reset\"\tUse it to clean the array");
             Console.WriteLine("\t- \"quit\"\tUse it to quit the program\n");
+            Console.WriteLine("---------------------------------------------------------------------");
+
+            Console.WriteLine("Enter int64 value for myArray[]");
             
-            Console.WriteLine("Enter int64 value for myArray[] OR Enter \"quit\" to stop.");
-            Console.WriteLine("-----------------------------------------------------------");
         }
 
         static void Resize<T>(ref T[] array, int newSize) //Resize array. <T> makes generic method ('T' - type).
