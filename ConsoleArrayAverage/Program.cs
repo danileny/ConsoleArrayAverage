@@ -59,9 +59,10 @@ namespace ConsoleArrayAverage
             }
             else if (inputCheckArgument == "help")
             {
-                Console.WriteLine("You can use the following commands:");                
-                Console.WriteLine("\t- quit\tUse it to quit the program");
-                Console.WriteLine("\t- reset\tUse it to clean the array");
+                Console.WriteLine("You can use the following commands:");
+                Console.WriteLine("\t- \"help\"\tUse it to get the list of common commands");
+                Console.WriteLine("\t- \"reset\"\tUse it to clean the array");
+                Console.WriteLine("\t- \"quit\"\tUse it to quit the program");
                 inputCheckArgument = InputCheck(Console.ReadLine());                
             }
             else if (inputCheckArgument == "reset")
