@@ -68,7 +68,10 @@ namespace ConsoleArrayAverage
             }
             else if (inputCheckArgument == "reset")
             {
+                Console.Clear();
                 Console.WriteLine("Array cleaned");
+                System.Threading.Thread.Sleep(800);
+                Console.Clear();
                 Main();
             }
             else
