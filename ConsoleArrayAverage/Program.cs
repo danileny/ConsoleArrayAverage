@@ -33,7 +33,7 @@ namespace ConsoleArrayAverage
             array = newArray;
         }
 
-        static void AverageMethod(string inputAverageMethodArgument) //new created
+        static void AverageMethod(string st) //new created
         {
             long[] myArray; //Deaclare an array for something
             int t = 1;
@@ -42,7 +42,7 @@ namespace ConsoleArrayAverage
 
             for (i = 0; i < t; i++)
             {
-                myArray[i] = Convert.ToInt64(InputCheck(inputAverageMethodArgument));
+                myArray[i] = Convert.ToInt64(InputCheck(st));
 
                 Console.WriteLine("Array length = " + myArray.Length);
                 Console.WriteLine("Array average = " + myArray.Average());
@@ -56,24 +56,24 @@ namespace ConsoleArrayAverage
                 t++;
                 Resize(ref myArray, t); //Change array length
                 Console.WriteLine("Enter another int64 value for myArray: ");
-                inputAverageMethodArgument = InputCheck(Convert.ToString(Console.ReadLine()));
+                st = InputCheck(Convert.ToString(Console.ReadLine()));
             }
         }
-        static string InputCheck(string inputCheckArgument)
+        static string InputCheck(string st)
         {
-            if (inputCheckArgument == "quit")
+            if (st == "quit")
             {
                 Console.Clear();
                 Console.WriteLine("Program stopped. Console cleared. Press any key to exit.");
                 Console.ReadKey();
                 Environment.Exit(0);
             }
-            else if (inputCheckArgument == "help")
+            else if (st == "help")
             {
                 InfoMessage();
-                inputCheckArgument = InputCheck(Console.ReadLine());
+                st = InputCheck(Console.ReadLine());
             }
-            else if (inputCheckArgument == "reset")
+            else if (st == "reset")
             {
                 Console.Clear();
                 Console.WriteLine("Array cleaned");
@@ -85,17 +85,17 @@ namespace ConsoleArrayAverage
             {
                 try
                 {
-                    Convert.ToInt64(inputCheckArgument);
+                    Convert.ToInt64(st);
                 }
                 catch (Exception e)
                 {
                     Console.WriteLine(e.Message);
                     Console.WriteLine($"Program execution stopped due to error above. Enter int64 value to continue.");
-                    inputCheckArgument = InputCheck(Console.ReadLine());
+                    st = InputCheck(Console.ReadLine());
                     //Environment.Exit(0);                    
                 }
             }
-            return inputCheckArgument;
+            return st;
         }
 
     }
