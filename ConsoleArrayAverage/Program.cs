@@ -7,16 +7,15 @@ namespace ConsoleArrayAverage
     {
         static void InfoMessage()
         {
-            Console.WriteLine("---------------------------------------------------------------------");
-            Console.WriteLine("----------------------Simple array average calc----------------------");
-            Console.WriteLine("---------------------------------------------------------------------");
-            Console.WriteLine("You can use the following commands:");
-            Console.WriteLine("\t- \"help\"\tUse it to list all availiable commands");
-            Console.WriteLine("\t- \"reset\"\tUse it to clean the array");
-            Console.WriteLine("\t- \"quit\"\tUse it to quit the program\n");
-            Console.WriteLine("---------------------------------------------------------------------");
-
-            Console.WriteLine("Enter int64 value for myArray[]");
+            Console.WriteLine("---------------------------------------------------------------------"
+                                + "\n----------------------Simple array average calc----------------------"
+                                + "\n---------------------------------------------------------------------"
+                                + "\nYou can use the following commands:"
+                                + "\n\t- \"help\"\tUse it to list all availiable commands"
+                                + "\n\t- \"reset\"\tUse it to clean the array"
+                                + "\n\t- \"quit\"\tUse it to quit the program\n"
+                                + "\n---------------------------------------------------------------------"                                
+                                + "\nEnter int64 value for myArray[]");
             
         }
 
