@@ -16,13 +16,16 @@ namespace ConsoleArrayAverage
             Console.WriteLine("---------------------------------------------------------------------"
                           + "\n----------------------Simple array average calc----------------------"
                           + "\n---------------------------------------------------------------------"
-                          + "\nYou can use the following commands:"
-                          + "\n\t- \"help\"\tUse it to list all availiable commands"
-                          + "\n\t- \"reset\"\tUse it to clean the array"
-                          + "\n\t- \"quit\"\tUse it to quit the program\n"
+                          + "\nEnter int64 value for myArray[]");
+                    }
+        static void HelpMessage()
+        {
+            Console.WriteLine("\nYou can use the following commands:"
+                          + "\n\t- \"help\"\tList all availiable commands"
+                          + "\n\t- \"reset\"\tClean the array"
+                          + "\n\t- \"quit\"\tQuit program\n"
                           + "\n---------------------------------------------------------------------"
                           + "\nEnter int64 value for myArray[]");
-
         }
 
         static void Resize<T>(ref T[] array, int newSize) //Resize array. <T> makes generic method ('T' - type).
@@ -32,7 +35,6 @@ namespace ConsoleArrayAverage
                 newArray[i] = array[i];
             array = newArray;
         }
-
         static void AverageMethod(string st) //new created
         {
             long[] myArray; //Deaclare an array for something
@@ -70,7 +72,7 @@ namespace ConsoleArrayAverage
             }
             else if (st == "help")
             {
-                InfoMessage();
+                HelpMessage();
                 st = InputCheck(Console.ReadLine());
             }
             else if (st == "reset")
