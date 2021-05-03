@@ -63,14 +63,14 @@ namespace ConsoleArrayAverage
         }
         static string InputCheck(string st)
         {
-            if (st == "quit")
+            if (st.ToLower() == "quit")
             {
                 Console.Clear();
                 Console.WriteLine("Program stopped. Console cleared. Press any key to exit.");
                 Console.ReadKey();
                 Environment.Exit(0);
             }
-            else if (st == "help")
+            else if (st.ToLower() == "help")
             {
                 HelpMessage();
                 st = InputCheck(Console.ReadLine());
@@ -99,6 +99,5 @@ namespace ConsoleArrayAverage
             }
             return st;
         }
-
     }
 }
