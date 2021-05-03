@@ -75,7 +75,7 @@ namespace ConsoleArrayAverage
                 HelpMessage();
                 st = InputCheck(Console.ReadLine());
             }
-            else if (st == "reset")
+            else if (st.ToLower() == "reset")
             {
                 Console.Clear();
                 Console.WriteLine("Array cleaned");
