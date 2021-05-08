@@ -58,7 +58,7 @@ namespace ConsoleArrayAverage
                 t++;
                 Resize(ref myArray, t); //Change array length
                 Console.WriteLine("Enter another int64 value for myArray: ");
-                st = InputCheck(Convert.ToString(Console.ReadLine()));
+                st = InputCheck(Console.ReadLine());
             }
         }
         static string InputCheck(string st)
