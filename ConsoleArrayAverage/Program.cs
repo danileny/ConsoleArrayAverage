@@ -8,11 +8,12 @@ namespace ConsoleArrayAverage
 
         static void Main()
         {
-            InfoMessage();
+            AppInfo();
+            PrintColorMessage(ConsoleColor.Cyan, "\nEnter actual number for myArray:");
             AverageMethod(InputCheck(Console.ReadLine()));
         }
 
-        static void InfoMessage()
+        static void AppInfo()
         {
             string appVersion = "1.0.0";
             string appAuthor = "Geeno";
@@ -21,10 +22,7 @@ namespace ConsoleArrayAverage
             Console.WriteLine("---------------------------------------------------------------------" +
                             "\n----------------------Simple array average calc----------------------" +
                             "\n---------------------------------------------------------------------" +
-                            "\nVersion: {0}\nAuthor: {1}\n", appVersion, appAuthor);
-
-            Console.ResetColor();
-            PrintColorMessage(ConsoleColor.Cyan, "\nEnter actual number for myArray:");
+                            "\nVersion: {0}\nAuthor: {1}\n", appVersion, appAuthor);           
         }
 
         static void HelpMessage()
@@ -46,7 +44,7 @@ namespace ConsoleArrayAverage
         }
 
         static void AverageMethod(string st) //new created
-        {
+        {            
             long[] myArray; //Deaclare an array for something
             int t = 1;
             int i;
@@ -74,6 +72,7 @@ namespace ConsoleArrayAverage
 
         static string InputCheck(string st)
         {
+            
             while (!int.TryParse(st, out int sta))
             {
 
