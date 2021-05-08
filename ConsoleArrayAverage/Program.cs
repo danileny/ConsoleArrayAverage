@@ -11,6 +11,7 @@ namespace ConsoleArrayAverage
             InfoMessage();
             AverageMethod(InputCheck(Console.ReadLine()));
         }
+
         static void InfoMessage()
         {
             string appVersion = "1.0.0";
@@ -43,6 +44,7 @@ namespace ConsoleArrayAverage
                 newArray[i] = array[i];
             array = newArray;
         }
+
         static void AverageMethod(string st) //new created
         {
             long[] myArray; //Deaclare an array for something
@@ -69,6 +71,7 @@ namespace ConsoleArrayAverage
                 st = InputCheck(Console.ReadLine());
             }
         }
+
         static string InputCheck(string st)
         {
             while (!int.TryParse(st, out int sta))
@@ -84,7 +87,7 @@ namespace ConsoleArrayAverage
                 {
                     Console.Clear();
                     Console.WriteLine("Array cleaned");
-                    System.Threading.Thread.Sleep(800);
+                    System.Threading.Thread.Sleep(500);
                     Console.Clear();
                     Main();
                 }
@@ -104,14 +107,12 @@ namespace ConsoleArrayAverage
                 }
             }
             return st;
-
         }
+
         static void PrintColorMessage(ConsoleColor color, string message)
         {
             Console.ForegroundColor = color;
-
             Console.WriteLine(message);
-
             Console.ResetColor();
         }
     }
