@@ -5,13 +5,34 @@ namespace ConsoleArrayAverage
 {
     class Program
     {
-        static void IntroMessage()
+
+        static void Main()
+        {            
+            InfoMessage();
+            AverageMethod(InputCheck(Console.ReadLine()));
+        }
+        static void InfoMessage() 
         {
-            Console.WriteLine("-----------------------------------------------------------");
-            Console.WriteLine("Simple array average calc.");
-            Console.WriteLine("Type \"help\" for the list of common commands.");
-            Console.WriteLine("Enter int64 value for myArray[] OR Enter \"quit\" to stop.");
-            Console.WriteLine("-----------------------------------------------------------");
+            string appVersion = "1.0.0";
+            string appAuthor = "Geeno";
+            
+            Console.ForegroundColor = ConsoleColor.Yellow;
+            Console.WriteLine("---------------------------------------------------------------------" +
+                            "\n----------------------Simple array average calc----------------------" +
+                            "\n---------------------------------------------------------------------" +
+                            "\nVersion: {0}\nAuthor: {1}\n", appVersion, appAuthor);
+            
+            Console.ResetColor();
+            PrintColorMessage(ConsoleColor.Cyan, "\nEnter actual number for myArray:");
+        }
+        
+        static void HelpMessage() {
+            Console.WriteLine("\nYou can use the following commands:"
+                          + "\n\t- \"help\"\tList all availiable commands"
+                          + "\n\t- \"reset\"\tClean the array"
+                          + "\n\t- \"quit\"\tQuit program\n"
+                          + "\n---------------------------------------------------------------------"
+                          + "\nEnter int64 value for myArray[]");
         }
 
         static void Resize<T>(ref T[] array, int newSize) //Resize array. <T> makes generic method ('T' - type).
@@ -21,73 +42,77 @@ namespace ConsoleArrayAverage
                 newArray[i] = array[i];
             array = newArray;
         }
-
-        static void AverageMethod(string enteredVar)
+        static void AverageMethod(string st) //new created
         {
-            Int64[] myArray; //Deaclare an array
+            long[] myArray; //Deaclare an array for something
             int t = 1;
             int i;
-            myArray = new Int64[t]; //Initialize an array
-            
+            myArray = new long[t]; //Initialize an array
+
             for (i = 0; i < t; i++)
             {
-                myArray[i] = Convert.ToInt64(InputCheck(enteredVar));
+                myArray[i] = Convert.ToInt64(st);
 
-                Console.WriteLine("Array length = " + myArray.Length);
-                Console.WriteLine("Array average = " + myArray.Average());             
+                Console.WriteLine("Array length = {0} \nArray average = {1}", myArray.Length, + myArray.Average()); 
                 
                 foreach (int k in myArray)
                 {
-                    Console.Write($"{k}\a\t");
+                    Console.Write($"" +
+                        $"{k}\a\t");
                 }
                 Console.Write("\n");
-                
+
                 t++;
                 Resize(ref myArray, t); //Change array length
-                Console.WriteLine("Enter another int64 value for myArray: ");
-                enteredVar = InputCheck(Convert.ToString(Console.ReadLine()));
+                
+                PrintColorMessage(ConsoleColor.Cyan, "Enter another actual number for myArray: ");
+                st = InputCheck(Convert.ToString(Console.ReadLine()));
             }
         }
-        static string InputCheck(string metArg)
+        static string InputCheck(string st)
         {
-            if (metArg == "quit")
+            while (!int.TryParse(st, out int sta))
             {
-                Console.Clear();
-                Console.WriteLine("Program stopped. Console cleared. Press any key to exit.");
-                Console.ReadKey();
-                Environment.Exit(0);
-            }
-            else if (metArg == "help")
-            {
-                Console.WriteLine("You can use the following commands:");                
-                Console.WriteLine("\t- quit \tUse it to quit the program");
-                Console.WriteLine("\t- reset \tUse it to ckean the array");
-                metArg = InputCheck(Console.ReadLine());                
-            }
-            else if (metArg == "reset")
-            {
-                Main();            
-            }
-            else
-            {
-                try
+
+                if (st.ToLower() == "help")
                 {
-                    Convert.ToInt64(metArg);                    
+                    HelpMessage();
+                    st = InputCheck(Console.ReadLine());
                 }
-                catch (Exception e)
+
+                else if (st.ToLower() == "reset")
                 {
-                    Console.WriteLine(e.Message);
-                    Console.WriteLine($"Program execution stopped due to error above. Enter value to continue.");
-                    metArg =  InputCheck(Console.ReadLine()); 
-                    //Environment.Exit(0);                    
+                    Console.Clear();
+                    Console.WriteLine("Array cleaned");
+                    System.Threading.Thread.Sleep(800);
+                    Console.Clear();
+                    Main();
+                }
+
+                else if (st.ToLower() == "quit")
+                {
+                    Console.Clear();
+                    Console.WriteLine("Program stopped. Console cleared. Press any key to exit.");
+                    Console.ReadKey();
+                    Environment.Exit(0);
+                }
+
+                else
+                {
+                    PrintColorMessage(ConsoleColor.Red, "You have the error input. Use actual number");
+                    st = InputCheck(Console.ReadLine());
                 }                
             }
-            return metArg;
+            return st;
+
         }
-        static void Main()
-        {            
-            IntroMessage();
-            AverageMethod(Console.ReadLine());
+        static void PrintColorMessage(ConsoleColor color, string message)
+        {
+            Console.ForegroundColor = color;
+
+            Console.WriteLine(message);
+
+            Console.ResetColor();
         }
     }
 }
