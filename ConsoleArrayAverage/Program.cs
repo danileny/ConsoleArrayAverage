@@ -18,7 +18,7 @@ namespace ConsoleArrayAverage
             string appVersion = "1.0.0";
             string appAuthor = "Geeno";
 
-            Console.ForegroundColor = ConsoleColor.Yellow;
+            Console.ForegroundColor = ConsoleColor.DarkYellow;
             Console.WriteLine("---------------------------------------------------------------------" +
                             "\n----------------------Simple array average calc----------------------" +
                             "\n---------------------------------------------------------------------" +
@@ -54,7 +54,8 @@ namespace ConsoleArrayAverage
             {
                 myArray[i] = Convert.ToInt64(st);
 
-                Console.WriteLine("Array length = {0} \nArray average = {1}", myArray.Length, +myArray.Average());
+                //Console.WriteLine("Array length = {0} \nArray average = {1}", myArray.Length, +myArray.Average());
+                PrintColorMessage(ConsoleColor.DarkYellow, $"Array length = {myArray.Length} \nArray average = {myArray.Average()}");
 
                 foreach (int k in myArray)
                 {
@@ -65,7 +66,7 @@ namespace ConsoleArrayAverage
 
                 t++;
                 Resize(ref myArray, t); //Change array length
-                Console.WriteLine("Enter another int64 value for myArray: ");
+                PrintColorMessage(ConsoleColor.Cyan, "Enter another int64 value for myArray: ");
                 st = InputCheck(Console.ReadLine());
             }
         }
@@ -91,7 +92,7 @@ namespace ConsoleArrayAverage
                     Main();
                 }
 
-                else if (st.ToLower() == "quit")
+                else if (st.ToLower() == "quit" || st.ToLower() == "exit")
                 {
                     Console.Clear();
                     Console.WriteLine("Program stopped. Console cleared. Press any key to exit.");
